@@ -21,19 +21,25 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
+    externalNativeBuild {
+        cmake {
+            path "CMakeLists.txt"
+        }
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation "androidx.room:room-runtime:$roomVersion"
-    //Room
+    //Room:
     kapt "androidx.room:room-compiler:$roomVersion"
     implementation "androidx.room:room-ktx:$roomVersion"
     implementation "androidx.room:room-rxjava2:$roomVersion"
     debugImplementation "com.amitshekhar.android:debug-db:$debugDbVersion"
-    implementation "androidx.security:security-crypto:$securityCryptoVersion"
-
+    //Serialization:
+    implementation "com.google.code.gson:gson:$gsonVersion"
+    implementation "androidx.security:security-crypto:1.0.0-rc01"
+    //Tests:
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
