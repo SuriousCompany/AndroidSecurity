@@ -20,7 +20,7 @@ class AccountViewModel(private val getAccountDataUseCase: GetAccountDataUseCase)
     }
 
     private fun displayAccount(accountData: AccountData) {
-
+        Log.i("pizda1", "account ${accountData.firstName} ${accountData.lastName} received")
     }
 
     override fun onCleared() {
