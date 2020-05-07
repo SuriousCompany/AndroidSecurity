@@ -20,4 +20,6 @@
 # hide the original source file name.
 #-renamesourcefileattribute SourceFile
 -keep class com.google.crypto.tink.proto.** {*;}
+-keep class company.surious.security.** {*;}
+
 -printusage usage.txt
