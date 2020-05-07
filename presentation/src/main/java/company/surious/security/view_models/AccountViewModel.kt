@@ -9,6 +9,7 @@ import io.reactivex.disposables.CompositeDisposable
 class AccountViewModel(private val getAccountDataUseCase: GetAccountDataUseCase) : ViewModel() {
     private val disposables = CompositeDisposable()
     fun update() {
+        Log.i("pizda1", "updating account data")
         disposables.add(getAccountDataUseCase.execute(null).subscribe(
             { account ->
                 displayAccount(account)
@@ -20,7 +21,7 @@ class AccountViewModel(private val getAccountDataUseCase: GetAccountDataUseCase)
     }
 
     private fun displayAccount(accountData: AccountData) {
-        Log.i("pizda1", "account ${accountData.firstName} ${accountData.lastName} received")
+        Log.i("pizda1", "account ${accountData.firstName} ${accountData.lastName} displayed")
     }
 
     override fun onCleared() {

@@ -23,9 +23,11 @@ class LoginViewModel(
     }
 
     fun login() {
+        Log.i("pizda1", "login")
         disposables.add(
             refreshTokenUseCase.execute(null).subscribe(
                 {
+                    Log.i("pizda1", "logged in")
                     loginStateLiveData.value = LoginState.LOGIN
                 },
                 { error ->
